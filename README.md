@@ -5,7 +5,10 @@ Downloaded from an Alura course for learning Prometheus and Grafana. Some modifi
 
 ## Commands
 
-### Versions
+- Build application: **mvn clean package**
+- Run application: **sh start.sh**
+
+### About versions
 Java version: java --version  
 Maven version: mvn --version  
 Docker version: docker --version  
@@ -22,6 +25,7 @@ Docker Compose version: docker-compose --version
   - docker ps or docker ps -a
 - To download and start docker containers:
   - docker-compose up
+  - docker-compose up -d (to not display the logs)
 
 ### Maven
 - To enter the application folder: cd prometheus-grafana-intro/app
@@ -46,3 +50,38 @@ Expose metrics in readable format for Prometheus (em formato legível para o pro
   - https://micrometer.io/docs/installing
 - Testing the Prometheus:
   - http://localhost:8080/actuator/prometheus
+
+## Request
+Type: POST  
+Url: http://localhost:8080/auth  
+Authorization: Bearer Token  
+Headers: Content-Type = application/json  
+Body:  
+- Success:
+`
+{
+"email":"moderador@email.com",
+"senha":"123456"
+}
+`  
+- Error:
+`
+{
+"email":"moderador@email.com",
+"senha":"123456789"
+}
+`  
+
+## Capitulo 3 - Aula 01 (with the new stack) 
+- Permission required: **chmod 777 prometheus_data** or **chmod 777 -Rvf prometheus**
+- Url Topics: http://localhost/topicos
+  - http://localhost/topicos/1
+  - http://localhost/topicos/2
+  - http://localhost/topicos/3  
+- Url Metrics: http://localhost/metrics  
+- Url Health: http://localhost/health  
+- Url Info: http://localhost/info  
+
+## Prometheus
+Url Prometheus: http://localhost:9090  
+Metrics of Prometheus: http://localhost:9090/metrics (Métricas do próprio Prometheus)  
