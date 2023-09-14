@@ -96,8 +96,16 @@ Metrics of Prometheus: http://localhost:9090/metrics (Métricas do próprio Prom
 ## Grafana
 Criar diretório para o grafana: **mkdir grafana**  
 Dar permissão ao diretório: **chmod 755 grafana**  
-**Obs. 1:** A permissão informada no curso foi a **777**, mas por questões de restrições do git, ela precisou ser mudada para: **755**   
+**Obs. 1:** A permissão informada no curso foi a **777**, mas por questões de restrições do git, ela precisou ser mudada para: **755**  
 **Obs. 2:** Esta permissão é necessário para que seja possível escrever dentro do container (isso não é uma boa prática em pord).  
+**Obs. 3:** Se não conseguir executar, volte a permissão pra **777**, e ignore essa pasta no commit
+- Nesse caso vc deverá:
+  - Excluuir a pasta: rm -rf grafana
+  - Criar novamente: mkdir grafana
+  - Add a permissão: chmod 777 grafana
+  - Rodar o docker compose: docker-compose up
+
+#### Acessos grafana:  
 - Url Grafana: http://localhost:3000  
 - Crediciais iniciais do grafana: admin, admin  
   - No primeiro acesso, após autenticar, será necessário trocar a senha. Ex.: samuel  
