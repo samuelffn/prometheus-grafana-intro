@@ -1,0 +1,18 @@
+variáveis:
+
+Label: application
+Query: label_values(application)
+
+Label: instance
+Query: label_values(jvm_classes_loaded_classes{application="$application"}, instance)
+
+Label: hikaricp
+Query: label_values(hikaricp_connections{instance="$instance", application="$application"}, pool)
+
+Label: memory_pool_heap
+Query: label_values(jvm_memory_used_bytes{application="$application", instance="$instance",
+area="heap"},id)
+
+Label: memory_pool_nonheap
+Query: label_values(jvm_memory_used_bytes{application="$application", instance="$instance",
+area="nonheap"},id)
